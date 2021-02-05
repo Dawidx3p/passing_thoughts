@@ -13,7 +13,10 @@ export function AddThoughtForm(props) {
       text: text,
       expiresAt: getNewExpirationTime()
     }
-    props.addThought(thought);
+    if(text !== ''){
+      props.addThought(thought);
+      setText('');
+    }
   }
   return (
     <form className="AddThoughtForm" onSubmit={handleSubmit}>
